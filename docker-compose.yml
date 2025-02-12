@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  number-generate-service:
+    image: number-generate-service
+    container_name: number-generate-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/order_number
+    depends_on:
+      - mongo
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=orders_database
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  orders-service:
+    image: order-service
+    container_name: order-service
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/orders_database
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - NUMBER_GENERATE_SERVICE_URL=http://number-generate-service:8081/api/v1
+      - NUMBER_GENERATE_SERVICE_NUMBERS_URI=/numbers
+    depends_on:
+      - postgres
+
+volumes:
+  mongo_data:
+  postgres_data:

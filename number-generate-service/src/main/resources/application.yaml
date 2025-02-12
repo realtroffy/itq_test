@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: number-generate-service
+
+  data:
+    mongodb:
+      host: localhost
+      database: order_number
+      port: 27017

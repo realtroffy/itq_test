@@ -1,0 +1,46 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "OrderNumber API",
+      "description": "Generates a unique order number"
+    }
+  ],
+  "paths": {
+    "/api/v1/numbers": {
+      "get": {
+        "tags": [
+          "OrderNumber API"
+        ],
+        "summary": "Generate Order Number",
+        "description": "Generates a unique order number in the format `XXXXXYYYYMMDD`\n- `XXXXX` - a random alphanumeric string (letters and digits, length 5)\n- `YYYYMMDD` - current date\n",
+        "operationId": "generateOrderNumber",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+
+  }
+}
