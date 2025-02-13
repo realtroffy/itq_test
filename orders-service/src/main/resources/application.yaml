@@ -12,10 +12,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    properties:
-      hibernate:
-        format_sql: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   liquibase:
     change-log: db.changelog/db.changelog-master.yaml
