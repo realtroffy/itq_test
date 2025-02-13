@@ -3,6 +3,10 @@ databaseChangeLog:
       file: db.changelog/changeset.v1/2025-02-11--01-create-orders-table.yml
   - include:
       file: db.changelog/changeset.v1/2025-02-11--02-create-order-details-table.yml
+  - include:
+     file: db.changelog/changeset.v1/2025-02-13--03-create-enum-types-orders-table.yml
+  - include:
+      file: db.changelog/changeset.v1/2025-02-13--04-change-types-orders-table.yml
 
 
 

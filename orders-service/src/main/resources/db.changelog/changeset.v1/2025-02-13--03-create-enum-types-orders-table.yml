@@ -3,9 +3,10 @@ databaseChangeLog:
       id: 3
       author: Artur Asiptsou
       changes:
-        - createType:
-            name: payment_type
-            values: 'CREDIT_CARD, CASH'
-        - createType:
-            name: delivery_type
-            values: 'SELF_DELIVERY, DOOR_DELIVERY'
+        - sql:
+            dbms: postgresql
+            splitStatements: false
+            stripComments: true
+            sql: |
+              CREATE TYPE payment_type AS ENUM ('CREDIT_CARD', 'CASH');
+              CREATE TYPE delivery_type AS ENUM ('SELF_DELIVERY', 'DOOR_DELIVERY');

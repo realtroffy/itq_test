@@ -3,18 +3,11 @@ databaseChangeLog:
       id: 4
       author: Artur Asiptsou
       changes:
-        - alterTable:
+        - modifyDataType:
             tableName: orders
-            changes:
-              - modifyColumn:
-                  column:
-                    name: payment_type
-                    type: payment_type
-                  constraints:
-                    nullable: false
-              - modifyColumn:
-                  column:
-                    name: delivery_type
-                    type: delivery_type
-                  constraints:
-                    nullable: false
+            columnName: payment_type
+            newDataType: payment_type
+        - modifyDataType:
+            tableName: orders
+            columnName: delivery_type
+            newDataType: delivery_type
