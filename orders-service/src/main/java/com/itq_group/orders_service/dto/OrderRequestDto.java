@@ -4,8 +4,10 @@ import com.itq_group.orders_service.model.DeliveryType;
 import com.itq_group.orders_service.model.PaymentType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
@@ -14,6 +16,8 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderRequestDto {
 
     @NotNull(message = "Order date cannot be null")
