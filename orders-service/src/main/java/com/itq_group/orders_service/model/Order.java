@@ -70,7 +70,7 @@ public class Order implements Serializable {
     @JdbcType(value = PostgreSQLEnumJdbcType.class)
     private DeliveryType deliveryType;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", orphanRemoval = true)
     @ToString.Exclude
     private List<OrderDetail> orderDetails = new ArrayList<>();
 
