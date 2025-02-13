@@ -3,6 +3,8 @@ package com.itq_group.orders_service.model;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -57,10 +59,12 @@ public class Order implements Serializable {
     private String address;
 
     @Column(name = "payment_type", nullable = false)
-    private String paymentType;
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
     @Column(name = "delivery_type", nullable = false)
-    private String deliveryType;
+    @Enumerated(EnumType.STRING)
+    private DeliveryType deliveryType;
 
     @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     @ToString.Exclude

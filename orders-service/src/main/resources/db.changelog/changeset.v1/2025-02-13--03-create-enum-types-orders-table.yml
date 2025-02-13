@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Artur Asiptsou
+      changes:
+        - createType:
+            name: payment_type
+            values: 'CREDIT_CARD, CASH'
+        - createType:
+            name: delivery_type
+            values: 'SELF_DELIVERY, DOOR_DELIVERY'

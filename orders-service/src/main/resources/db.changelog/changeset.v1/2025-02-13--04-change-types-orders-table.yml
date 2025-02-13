@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: Artur Asiptsou
+      changes:
+        - alterTable:
+            tableName: orders
+            changes:
+              - modifyColumn:
+                  column:
+                    name: payment_type
+                    type: payment_type
+                  constraints:
+                    nullable: false
+              - modifyColumn:
+                  column:
+                    name: delivery_type
+                    type: delivery_type
+                  constraints:
+                    nullable: false

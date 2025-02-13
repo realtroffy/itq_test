@@ -7,6 +7,8 @@ import com.itq_group.orders_service.dto.OrderDetailRequestDto;
 import com.itq_group.orders_service.dto.OrderFilterDTO;
 import com.itq_group.orders_service.dto.OrderRequestDto;
 import com.itq_group.orders_service.dto.OrderWithoutProductDto;
+import com.itq_group.orders_service.model.DeliveryType;
+import com.itq_group.orders_service.model.PaymentType;
 import com.itq_group.orders_service.service.OrderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -78,8 +80,8 @@ class OrderControllerTest {
                 .orderDate(orderDate)
                 .recipient("John Doe")
                 .address("123 Main Street")
-                .paymentType("Credit")
-                .deliveryType("Standard")
+                .paymentType(PaymentType.CREDIT_CARD)
+                .deliveryType(DeliveryType.SELF_DELIVERY)
                 .orderDetails(List.of(orderDetailDTO))
                 .build();
 
@@ -105,8 +107,8 @@ class OrderControllerTest {
                 .orderDate(orderDate)
                 .address("Some address")
                 .recipient("Recipient")
-                .paymentType("Bank Card")
-                .deliveryType("Post")
+                .paymentType(PaymentType.CREDIT_CARD)
+                .deliveryType(DeliveryType.SELF_DELIVERY)
                 .orderDetails(List.of(orderDetailRequestDto))
                 .build();
 

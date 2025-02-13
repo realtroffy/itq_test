@@ -1,5 +1,7 @@
 package com.itq_group.orders_service.dto;
 
+import com.itq_group.orders_service.model.DeliveryType;
+import com.itq_group.orders_service.model.PaymentType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
@@ -26,10 +28,10 @@ public class OrderRequestDto {
     private String address;
 
     @NotNull(message = "Payment type cannot be null")
-    private String paymentType;
+    private PaymentType paymentType;
 
     @NotNull(message = "Delivery type cannot be null")
-    private String deliveryType;
+    private DeliveryType deliveryType;
 
     private List<OrderDetailRequestDto> orderDetails;
 }
